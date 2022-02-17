@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <DiscountInfo />
     <div id="nav">
-      <router-link to="/HomeComponent"
+      <router-link to="/"
         ><img src="./assets/logo-black.a6c1822.png" alt=""
       /></router-link>
       <NavBar />
@@ -11,13 +12,15 @@
 </template>
 
 <script>
+import DiscountInfo from "@/components/DiscountInfo";
 import NavBar from "@/views/NavBar.vue";
 export default {
   data: () => ({
 
   }),
   components: {
-    NavBar
+    NavBar,
+    DiscountInfo
   }
 };
 </script>

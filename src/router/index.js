@@ -6,14 +6,9 @@ Vue.use(VueRouter)
 const routes = [
 
   {
-    path: '/home',
-    name: 'Home',
-    component: () => import('../views/NavBar.vue')
-  },
-  {
-    path: '/HomeComponent',
+    path: '/',
     name: 'HomeComponent',
-    component: () => import('../components/HomeComponent.vue')
+    component: () => import('../components/HomePageComponents/HomeComponent.vue')
   },
   {
     path: '/Browse',
@@ -34,6 +29,31 @@ const routes = [
     path: '/WishList',
     name: 'WishList',
     component: () => import('../components/WishListComponent.vue')
+  },
+  {
+    path: '/ExploreBooks',
+    name: 'ExploreBooks',
+    component: () => import('../components/HomePageComponents/ExploreBooks.vue')
+  },
+  {
+    path: '/Registration',
+    name: 'Registration',
+    component: () => import('../components/RegistrationPageComponents/Registration.vue')
+  },
+  {
+    path: '/ResetPassword',
+    name: 'ResetPassword',
+    component: () => import('../components/RegistrationPageComponents/ResetPassword.vue')
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../components/LoginPageComponent/Login.vue')
+  },
+  {
+    path: '/Secret',
+    name: 'Secret',
+    component: () => import('../components/RegistrationPageComponents/Secret.vue')
   }
 ]
 
