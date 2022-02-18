@@ -7,20 +7,24 @@
       /></router-link>
       <NavBar />
     </div>
+
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import DiscountInfo from "@/components/DiscountInfo";
 import NavBar from "@/views/NavBar.vue";
+import Footer from "@/views/Footer";
 export default {
   data: () => ({
 
   }),
   components: {
     NavBar,
-    DiscountInfo
+    DiscountInfo,
+    Footer
   }
 };
 </script>
@@ -42,6 +46,7 @@ export default {
 #nav {
   padding: 30px;
   display: flex;
+  background-color: white;
 
   a {
     font-weight: bold;

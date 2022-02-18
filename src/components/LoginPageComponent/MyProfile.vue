@@ -1,12 +1,14 @@
 <template>
-  <div class="secret">
-    <p>Yeessss</p>
+  <div class="MyProfile">
+    <h1>Your Profile</h1>
   </div>
 </template>
 
 <script>
 export default {
+  data: () => ({
 
+  })
 }
 </script>
 

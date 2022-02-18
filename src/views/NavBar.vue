@@ -20,7 +20,7 @@
               <h2>Login</h2>
               <div class="inputMail">
                 <label for="email">email address</label><br />
-                <input type="text" name="email" autocomplete="off" required />
+                <input v-model="email" type="text" name="email" required />
               </div>
               <div class="inputPassword">
                 <label for="password">password</label><br />
@@ -29,11 +29,12 @@
                   name="password"
                   autocomplete="off"
                   required
+                  v-model="password"
                 />
               </div>
               <div class="HelpLogin">
-                <input type="checkbox" id="Remember Me" name="Remember Me" />
-                <label for="Remember Me">Remember Me</label>
+                <input type="checkbox" id="checkbox" v-model="checked" />
+                <label for="checkbox">Remember Me</label>
                 <router-link to="/ResetPassword"
                   ><span @click="isShow = !isShow"
                     >Forgot Password?</span
@@ -60,10 +61,6 @@
         <span @click="isFullSize = !isFullSize"
           ><font-awesome-icon class="cart" icon="fa-solid fa-bag-shopping"
         /></span>
-        <p>Logged In</p>
-        <span v-if="loggedIn">Logged</span>
-        <span v-else>No</span>
-        <button @click="signOut">Sign Out</button>
       </div>
     </nav>
     <header
@@ -82,46 +79,24 @@
 </template>
 
 <script>
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 import SimpleModal from "simple-modal-vue";
 export default {
-  created() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.loggedIn = !!user;
-      // if (user) {
-      //   this.loggedIn = true;
-      // }
-      // else {
-      //   this.loggedIn = false;
-      // }
-    })
-  },
-  loggedIn: false,
   name: "Home",
   data: () => ({
     isShow: false,
     isFullSize: false,
+    checked: false,
     MenuItems: [
       { content: "home", router: "/", id: 1 },
       { content: "browse", router: "/Browse", id: 2 },
       { content: "content creators", router: "/ContentCreator", id: 3 },
       { content: "accountability partners", router: "/Accountability", id: 4 },
     ],
+    email: "",
+    password: "",
   }),
   components: {
     SimpleModal,
-  },
-  methods: {
-    async signOut() {
-      try {
-        const data = await firebase.auth().signOut();
-        console.log(data)
-        this.$router.replace({name: "Login"})
-      } catch (err) {
-        console.log(err);
-      }
-    },
   },
 };
 </script>
