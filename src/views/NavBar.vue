@@ -121,6 +121,7 @@ export default {
   bottom: 0;
   background: white 0 0 no-repeat padding-box;
   opacity: 1;
+  z-index: 111;
   h2 {
     text-align: left;
     margin-left: 25px;
@@ -150,16 +151,6 @@ export default {
   left: 0;
   right: 0;
   background: #55555550;
-}
-
-.mushex {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  //display: none;
 }
 .searchNavbar {
   padding-left: 50px;

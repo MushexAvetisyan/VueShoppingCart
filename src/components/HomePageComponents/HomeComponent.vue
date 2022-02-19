@@ -8,11 +8,20 @@
           <p>A Selection with only the best books</p>
           <img src="../../assets/banner-1.png" alt="" />
           <router-link to="/ExploreBooks"
-            ><button class="Explore">EXPLORE BOOKS -></button></router-link
+            ><button class="Explore">EXPLORE BOOKS <font-awesome-icon icon="fa-solid fa-arrow-right-long" /></button></router-link
           >
         </div>
+        <div class="gird">
+          <div class="Products" v-for="(product, index) in $store.state.products" :key="index">
+            <div class="image-wrapper">
+              <img :src="product.ProductImg" alt="" class="image">
+              <img :src="product.ProductImgHover" alt="" class="image-hover">
+            </div>
+            <p>{{product.ProductName}}</p>
+            <h2>{{product.ProductPrice}}</h2>
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,22 +40,60 @@ export default {
   h3 {
     color: #222529;
     font-weight: normal;
-    font-size: 15px;
     padding-top: 100px;
     text-align: left;
-    margin-left: 280px;
+    font-size: 22px;
+    margin-left: 50px;
+    border-bottom: 2px solid #E7E7E7;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+}
+
+.image-wrapper {
+  position: relative;
+}
+.image-hover {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.image-hover:hover {
+  opacity: 1;
+}
+
+.Products{
+  width: 300px;
+  height: 380px;
+  border-right: 2px solid #F3F3F3;
+  border-bottom: 2px solid #F3F3F3;
+  padding-top: 20px;
+  img{
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
   }
 }
 .main {
   margin: 0 auto;
-  width: 70%;
+  width: 95%;
   height: auto;
   background-color: white;
+  display: flex;
+}
+
+.gird{
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  gap: 0 0;
 }
 .BooksExplore {
   width: 400px;
-  border-right: 2px solid #F3F3F3;
-  padding: 80px 20px 70px;
+  border-right: 2px solid #f3f3f3;
+  padding: 80px 70px 70px;
   h2 {
     font-size: 19px;
     font-style: italic;
@@ -54,20 +101,32 @@ export default {
     font-weight: 500;
   }
   p {
-    font-size: 28px;
+    font-size: 30px;
     color: #222529;
     font-weight: 600;
+    letter-spacing: 1px;
   }
-  .Explore{
+  img{
+    height: 340px;
     margin-top: 30px;
-    padding: 13px 55px 13px 30px;
+  }
+  .Explore {
+    margin-top: 30px;
+    padding: 20px 55px 20px 30px;
     outline: none;
     border: none;
-    background-color: #03A9F8;
+    background-color: #03a9f8;
     color: white;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 20px;
     cursor: pointer;
+    i{
+      margin-left: 15px;
+    }
+    &:hover{
+      background-color: rgba(3, 169, 248, 0.8,);
+      transition: 0.3s;
+    }
   }
 }
 </style>

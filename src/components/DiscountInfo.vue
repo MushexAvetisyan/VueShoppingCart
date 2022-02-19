@@ -1,11 +1,13 @@
 <template>
-  <div class="app">
+  <div class="Discount">
     <div class="main">
       <div class="first">
-
+        <font-awesome-icon  icon="fa-solid fa-truck-fast" />
+        <h4>Free Shipping on Orders Over $99</h4>
       </div>
       <div class="second">
-
+        <font-awesome-icon icon="fa-regular fa-money-bill-1" />
+        <h4>Up to 40% OFF on Selected Items</h4>
       </div>
       <div class="three">
 

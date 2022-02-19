@@ -51,7 +51,7 @@ export default {
   a {
     font-weight: bold;
     color: black;
-    font-size: 13px;
+    font-size: 15px;
 
     &.router-link-exact-active {
       color: #FE1A5B;
