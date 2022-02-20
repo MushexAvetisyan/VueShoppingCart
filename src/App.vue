@@ -47,6 +47,7 @@ export default {
   padding: 30px;
   display: flex;
   background-color: white;
+  align-items: center;
 
   a {
     font-weight: bold;
@@ -57,7 +58,7 @@ export default {
       color: #FE1A5B;
     }
     img{
-      width: 150px;
+      width: 200px;
     }
   }
   ul{
@@ -68,6 +69,7 @@ export default {
     padding-right: 15px;
     border-right: 2px solid white;
     li{
+      letter-spacing: 1px;
       a{
         margin-left: 30px;
         text-decoration-line: none;

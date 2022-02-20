@@ -73,6 +73,7 @@
         <span class="CloseSidebar" @click="isFullSize = !isFullSize">X</span>
         <h2>Shopping Cart</h2>
         <p>No Products In The Cart</p>
+        <p></p>
       </div>
     </header>
   </div>
@@ -157,8 +158,8 @@ export default {
   display: flex;
   align-items: center;
   .search {
-    height: 45px;
-    width: 600px;
+    height: 60px;
+    width: 500px;
     border: none;
     border-radius: 25px;
     padding: 15px;
@@ -170,12 +171,14 @@ export default {
   .join {
     background-color: #383f49;
     color: white !important;
-    padding: 13px 20px;
+    padding: 18px 35px;
     border-radius: 50px;
+    -webkit-text-decoration-line: none !important;
     text-decoration-line: none !important;
-    font-size: 16px !important;
+    font-size: 18px !important;
     margin-left: 50px;
     cursor: pointer;
+    font-weight: 600;
   }
   .heart,
   .cart {
