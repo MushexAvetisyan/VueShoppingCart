@@ -1,32 +1,35 @@
 <template>
   <div class="ProductComponent">
     <router-link to="/">Back</router-link>
-<!--    {{$route.params.id}}-->
+    <!--    {{$route.params.id}}-->
     <div class="Product">
       <div class="main" v-if="product">
         <div class="img">
-          <img :src="product.ImgBig">
+          <img :src="product.ImgBig" alt="img"/>
           <div class="info">
-            <h1>{{product.Name}}</h1>
-            <hr width="50px">
-            <h2>{{product.Price}}</h2>
+            <h1>{{ product.Name }}</h1>
+            <hr width="50px" />
+            <h2>{{ product.Price }}</h2>
             <span>
-          <p>
-            {{product.Description}}
-          </p>
-        </span>
-            <p class="Sku">SKU: <span>{{product.SKU}}</span></p>
-            <p>CATEGORY: <router-link to="/">Arts & Photography</router-link></p>
+              <p>
+                {{ product.Description }}
+              </p>
+            </span>
+            <p class="Sku">
+              SKU: <span>{{ product.SKU }}</span>
+            </p>
+            <p>
+              CATEGORY: <router-link to="/">Arts & Photography</router-link>
+            </p>
             <div class="AddToCart">
               <div class="ItemCount">
-                <span >-</span>
-                <span>1</span>
-                <span>+</span>
+                <span @click="decrement" class="button">-</span>
+                <span>{{ productCount }}</span>
+                <span @click="increment" class="button">+</span>
               </div>
               <div class="AddingButton">
-                <button>Add To Cart</button>
+                <button @click="addToCart">Add To Cart</button>
               </div>
-
             </div>
           </div>
         </div>
@@ -37,73 +40,101 @@
 
 <script>
 export default {
-  computed: {
-    product() {
-      return this.$store.getters.product(parseInt(this.$route.params.id))
+  data() {
+    return {
+      productCount: 0,
     }
   },
-}
+  computed: {
+    product() {
+      return this.$store.getters.product(parseInt(this.$route.params.id));
+    },
+  },
+  methods: {
+    increment() {
+      this.productCount++
+    },
+    decrement() {
+      this.productCount--
+    },
+    addToCart() {
+      const cart ={
+        id: this.product.id,
+        Name: this.product.Name,
+        Img: this.product.Img,
+        Price: this.product.Price,
+        Count: this.productCount,
+      }
+      this.$store.commit("SET_STORE_CART", cart)
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-.main{
+.button {
+  cursor: pointer;
+}
+.main {
   background-color: white;
   margin-top: 30px;
-  .img{
+  .img {
     display: flex;
     width: 80%;
     margin: 0 auto;
     text-align: left;
     padding: 30px;
-    img{
+    img {
       width: 400px;
       height: 480px;
     }
   }
-  .info{
-    h1,h2,span,p{
+  .info {
+    h1,
+    h2,
+    span,
+    p {
       margin-left: 20px;
     }
-    h1{
+    h1 {
       color: #222529;
     }
-    a{
+    a {
       color: black;
       text-decoration-line: none;
-      &:hover{
+      &:hover {
         text-decoration-line: underline;
       }
     }
-    h2{
+    h2 {
       color: black;
       font-size: 20px;
       font-weight: 500;
     }
-    p{
+    p {
       width: 600px;
-      color: #7B7977;
+      color: #7b7977;
       font-weight: 500;
     }
-    .Sku{
+    .Sku {
       margin: 15px 0 10px auto;
-      span{
+      span {
         color: black;
         margin-left: 0;
         font-size: 14px;
       }
-
     }
-    hr{
-      color: #E7E7E7;
+    hr {
+      color: #e7e7e7;
       margin: 10px 0 10px 20px;
     }
   }
-  .AddToCart{
-    border-top: 1px solid #E7E7E7;
+  .AddToCart {
+    border-top: 1px solid #e7e7e7;
     margin-left: 20px;
     display: flex;
     padding: 20px;
-    button{
+    button {
       padding: 10px 30px;
       font-size: 15px;
       outline: none;
@@ -111,15 +142,13 @@ export default {
       background-color: #222529;
       cursor: pointer;
       color: white;
-      &:hover{
-        background-color: rgba(34,37,41, 0.9);
+      &:hover {
+        background-color: rgba(34, 37, 41, 0.9);
         transition: 0.5s;
       }
     }
-    .AddingButton{
-
+    .AddingButton {
     }
   }
-
 }
 </style>

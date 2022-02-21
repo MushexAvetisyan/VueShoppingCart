@@ -18,7 +18,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 2,
@@ -31,7 +31,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 3,
@@ -44,7 +44,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 4,
@@ -57,7 +57,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 5,
@@ -70,7 +70,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 6,
@@ -83,7 +83,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 7,
@@ -96,7 +96,7 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
       {
         id: 8,
@@ -109,15 +109,21 @@ export default new Vuex.Store({
           "ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
           "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet " +
           "quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-        SKU: "854613298"
+        SKU: "854613298",
       },
     ],
-    StoreCart: [],
+    storeCarts: [],
   },
   getters: {
-    products: state => state.products,
+    products: (state) => state.products,
     product: (state) => (id) => {
       return state.products.find((product) => product.id === id);
     },
+    getStoreCarts: (store) => store.storeCarts,
   },
+  mutations: {
+    SET_STORE_CART: (store, storeCart) => {
+      store.storeCarts.push(storeCart)
+    }
+  }
 });
