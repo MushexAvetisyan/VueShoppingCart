@@ -20,6 +20,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCWrbCLm5JtxPdeTefua6E_8Cw3R-IRXSo",
   authDomain: "e-commerce-d3aca.firebaseapp.com",
   projectId: "e-commerce-d3aca",
+  databaseURL: "https://e-commerce-d3aca-default-rtdb.firebaseio.com/",
   storageBucket: "e-commerce-d3aca.appspot.com",
   messagingSenderId: "812128500154",
   appId: "1:812128500154:web:d7b41b2c41edbb156b8583"
@@ -27,6 +28,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
+var database = firebase.database();
 
 new Vue({
   router,

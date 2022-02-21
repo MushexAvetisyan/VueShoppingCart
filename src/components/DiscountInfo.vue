@@ -10,7 +10,8 @@
         <h4>Up to 40% OFF on Selected Items</h4>
       </div>
       <div class="three">
-
+        <font-awesome-icon icon="fa-solid fa-graduation-cap" />
+        <h4>15% OFF Student Discount</h4>
       </div>
     </div>
   </div>
@@ -31,16 +32,49 @@ export default {
   width: 50%;
   height: 50px;
   background-color: #03A9F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4{
+    color: white;
+    font-size: 13px;
+  }
+  svg{
+    margin-right: 15px;
+    color: white;
+  }
 }
 
 .second{
   width: 50%;
   height: 50px;
   background-color: #0098E0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4{
+    color: white;
+    font-size: 13px;
+  }
+  svg{
+    margin-right: 15px;
+    color: white;
+  }
 }
 .three{
   width: 50%;
   height: 50px;
   background-color: #03A9F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4{
+    color: white;
+    font-size: 13px;
+  }
+  svg{
+    margin-right: 15px;
+    color: white;
+  }
 }
 </style>

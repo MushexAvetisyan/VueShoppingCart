@@ -11,24 +11,21 @@
             ><button class="Explore">EXPLORE BOOKS <font-awesome-icon icon="fa-solid fa-arrow-right-long" /></button></router-link
           >
         </div>
-        <div class="gird">
-          <div class="Products" v-for="(product, index) in $store.state.products" :key="index">
-            <div class="image-wrapper">
-              <img :src="product.ProductImg" alt="" class="image">
-              <img :src="product.ProductImgHover" alt="" class="image-hover">
-            </div>
-            <p>{{product.ProductName}}</p>
-            <h2>{{product.ProductPrice}}</h2>
-          </div>
-        </div>
+        <ProductsList />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ProductsList from "@/components/HomePageComponents/ProductsList";
 export default {
-  data: () => ({}),
+  data: () => ({
+
+  }),
+  components: {
+    ProductsList
+  },
 };
 </script>
 
@@ -50,45 +47,13 @@ export default {
   }
 }
 
-.image-wrapper {
-  position: relative;
-}
-.image-hover {
-  position: absolute;
-  top: 0;
-  left: 50px;
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-.image-hover:hover {
-  opacity: 1;
-}
 
-.Products{
-  width: 300px;
-  height: 380px;
-  border-right: 2px solid #F3F3F3;
-  border-bottom: 2px solid #F3F3F3;
-  padding-top: 20px;
-  img{
-    width: 200px;
-    height: 300px;
-    cursor: pointer;
-  }
-}
 .main {
   margin: 0 auto;
-  width: 95%;
+  width: 85%;
   height: auto;
   background-color: white;
   display: flex;
-}
-
-.gird{
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
-  grid-template-rows: 0.5fr 0.5fr;
-  gap: 0 0;
 }
 .BooksExplore {
   width: 400px;
@@ -107,18 +72,18 @@ export default {
     letter-spacing: 1px;
   }
   img{
-    height: 340px;
+    height: 270px;
     margin-top: 30px;
   }
   .Explore {
     margin-top: 30px;
-    padding: 20px 55px 20px 30px;
+    padding: 15px 25px 15px 20px;
     outline: none;
     border: none;
     background-color: #03a9f8;
     color: white;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
     cursor: pointer;
     i{
       margin-left: 15px;

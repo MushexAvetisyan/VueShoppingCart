@@ -15,23 +15,23 @@
 <script>
 import RegistrationForm from "@/components/RegistrationPageComponents/RegistrationForm";
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   components: {
-    RegistrationForm
-  }
+    RegistrationForm,
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .Registration {
+  background-color: white;
+  padding-bottom: 50px;
 }
 .navigationPanel {
   padding-top: 50px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   height: 120px;
-  .info{
+  .info {
     display: flex;
     justify-content: center;
     align-items: center;

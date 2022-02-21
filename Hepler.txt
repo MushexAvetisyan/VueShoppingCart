@@ -1,2 +1,3 @@
 <font-awesome-icon icon="fa-solid fa-user-secret" />
 
+`/products/${product.id}`

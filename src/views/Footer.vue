@@ -85,6 +85,10 @@ export default {
   display: flex;
   justify-content: space-around;
   text-align: left;
+  border-top: 1px solid #E1E1E1;
+  padding-top: 30px;
+  width: 80%;
+  margin: 0 auto;
 }
 .NTrack {
   img {

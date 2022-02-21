@@ -58,7 +58,12 @@ const routes = [
     path: "/MyProfile",
     name: "MyProfile",
     component: () => import("../components/LoginPageComponent/MyProfile.vue")
-  }
+  },
+  {
+    path: "/Product/:id",
+    name: 'product',
+    component: () => import("../components/HomePageComponents/Products.vue")
+  },
 ];
 
 const router = new VueRouter({

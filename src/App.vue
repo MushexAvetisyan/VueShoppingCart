@@ -52,13 +52,13 @@ export default {
   a {
     font-weight: bold;
     color: black;
-    font-size: 15px;
+    font-size: 13px;
 
     &.router-link-exact-active {
       color: #FE1A5B;
     }
     img{
-      width: 200px;
+      width: 150px;
     }
   }
   ul{

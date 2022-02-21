@@ -16,11 +16,11 @@
         />
         <simple-modal v-model="isShow">
           <template slot="body">
-            <form action="" class="login_form">
+            <form @submit.prevent="userLogin" class="login_form">
               <h2>Login</h2>
               <div class="inputMail">
                 <label for="email">email address</label><br />
-                <input v-model="email" type="text" name="email" required />
+                <input v-model="user.email" type="text" name="email" required />
               </div>
               <div class="inputPassword">
                 <label for="password">password</label><br />
@@ -29,7 +29,7 @@
                   name="password"
                   autocomplete="off"
                   required
-                  v-model="password"
+                  v-model="user.password"
                 />
               </div>
               <div class="HelpLogin">
@@ -43,7 +43,7 @@
               </div>
 
               <div class="LogOrRegister">
-                <button class="Login">LOGIN</button>
+                <button @click="isShow = !isShow" type="submit" class="Login">LOGIN</button>
                 <router-link to="/Registration"
                   ><p @click="isShow = !isShow" class="RegNow">
                     Register Now!
@@ -71,16 +71,16 @@
     >
       <div class="sidebar" @click.stop>
         <span class="CloseSidebar" @click="isFullSize = !isFullSize">X</span>
-        <h2>Shopping Cart</h2>
-        <p>No Products In The Cart</p>
-        <p></p>
+        <ShopingCart />
       </div>
     </header>
   </div>
 </template>
 
 <script>
+import ShopingCart from "@/components/HomePageComponents/ShopingCart";
 import SimpleModal from "simple-modal-vue";
+import firebase from "firebase/compat/app";
 export default {
   name: "Home",
   data: () => ({
@@ -93,11 +93,27 @@ export default {
       { content: "content creators", router: "/ContentCreator", id: 3 },
       { content: "accountability partners", router: "/Accountability", id: 4 },
     ],
-    email: "",
-    password: "",
+    user: {
+      email: "",
+      password: "",
+    }
   }),
   components: {
     SimpleModal,
+    ShopingCart,
+  },
+  methods: {
+    userLogin() {
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(this.user.email, this.user.password)
+          .then(() => {
+            this.$router.push("/MyProfile");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+    },
   },
 };
 </script>
@@ -146,19 +162,20 @@ export default {
   }
 }
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background: #55555550;
+  z-index: 222;
 }
 .searchNavbar {
   padding-left: 50px;
   display: flex;
   align-items: center;
   .search {
-    height: 60px;
+    height: 50px;
     width: 500px;
     border: none;
     border-radius: 25px;
@@ -171,7 +188,7 @@ export default {
   .join {
     background-color: #383f49;
     color: white !important;
-    padding: 18px 35px;
+    padding: 10px 18px;
     border-radius: 50px;
     -webkit-text-decoration-line: none !important;
     text-decoration-line: none !important;

@@ -1,6 +1,6 @@
 <template>
   <div class="RegForm">
-    <form @submit.prevent="pressed" class="RegFormAction">
+    <form @submit.prevent="userRegistration" class="RegFormAction">
       <div class="inputs">
         <div v-if="error" class="error">
           {{ error.message }}
@@ -8,37 +8,33 @@
         <label for="First Name">First Name <span>*</span></label
         ><br />
         <input
-          v-model="firstName"
-          type="text"
+            v-model="user.name"
+            type="text"
           name="First Name"
-          autocomplete="off"
         />
         <br />
         <label for="Last Name">Last Name <span>*</span></label
         ><br />
         <input
-          v-model="lastName"
+          v-model="user.lastName"
           type="text"
           name="Last Name"
-          autocomplete="off"
         />
         <br />
         <label for="Email">Email address <span>*</span></label
         ><br />
         <input
-          v-model="email"
+            v-model="user.email"
           type="email"
           name="Email address"
-          autocomplete="off"
         />
         <br />
         <label for="Password">Password <span>*</span></label
         ><br />
         <input
-          v-model="password"
+            v-model="user.password"
           type="password"
           name="Password"
-          autocomplete="off"
         />
         <br />
         <label for="ConfirmPassword">ConfirmPassword <span>*</span></label
@@ -46,7 +42,6 @@
         <input
           type="password"
           name="ConfirmPassword"
-          autocomplete="off"
           v-model="confirmPassword"
         />
       </div>
@@ -66,25 +61,31 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 export default {
   data: () => ({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    error: "",
-    confirmPassword: "",
+    user: {
+      name: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
   }),
   methods: {
-    async pressed() {
-      try {
-        const user = firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password);
-        console.log(user)
-        this.$router.replace({ name: "secret" });
-      } catch (err) {
-        console.log(err)
-      }
-    },
+    userRegistration() {
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.user.email, this.user.password)
+      .then((res) => {
+        res.user
+        .updateProfile({
+          displayName: this.user.name
+        })
+        .then(() => {
+          this.$router.push('/Login')
+        })
+      })
+      .catch((error) => {
+        alert(error.message)
+      })
+    }
   },
 };
 </script>
