@@ -15,7 +15,6 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyCWrbCLm5JtxPdeTefua6E_8Cw3R-IRXSo",
   authDomain: "e-commerce-d3aca.firebaseapp.com",
@@ -23,11 +22,11 @@ const firebaseConfig = {
   databaseURL: "https://e-commerce-d3aca-default-rtdb.firebaseio.com/",
   storageBucket: "e-commerce-d3aca.appspot.com",
   messagingSenderId: "812128500154",
-  appId: "1:812128500154:web:d7b41b2c41edbb156b8583"
+  appId: "1:812128500154:web:d7b41b2c41edbb156b8583",
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 new Vue({

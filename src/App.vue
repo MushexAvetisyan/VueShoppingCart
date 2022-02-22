@@ -18,22 +18,20 @@ import DiscountInfo from "@/components/DiscountInfo";
 import NavBar from "@/views/NavBar.vue";
 import Footer from "@/views/Footer";
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   components: {
     NavBar,
     DiscountInfo,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 
 <style lang="scss">
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -55,26 +53,26 @@ export default {
     font-size: 13px;
 
     &.router-link-exact-active {
-      color: #FE1A5B;
+      color: #fe1a5b;
     }
-    img{
+    img {
       width: 150px;
     }
   }
-  ul{
+  ul {
     display: flex;
     list-style-type: none;
     margin-top: 15px;
     margin-left: 25px;
     padding-right: 15px;
     border-right: 2px solid white;
-    li{
+    li {
       letter-spacing: 1px;
-      a{
+      a {
         margin-left: 30px;
         text-decoration-line: none;
-        &:hover{
-          color: #FE1A5B;
+        &:hover {
+          color: #fe1a5b;
           transition: 0.5s;
         }
       }

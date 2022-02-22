@@ -43,7 +43,9 @@
               </div>
 
               <div class="LogOrRegister">
-                <button @click="isShow = !isShow" type="submit" class="Login">LOGIN</button>
+                <button @click="isShow = !isShow" type="submit" class="Login">
+                  LOGIN
+                </button>
                 <router-link to="/Registration"
                   ><p @click="isShow = !isShow" class="RegNow">
                     Register Now!
@@ -58,9 +60,12 @@
         <router-link to="/WishList"
           ><font-awesome-icon class="heart" icon="fa-regular fa-heart"
         /></router-link>
-        <span @click="isFullSize = !isFullSize"
-          ><font-awesome-icon class="cart" icon="fa-solid fa-bag-shopping"
-        /></span>
+        <span class="Carticon" @click="isFullSize = !isFullSize"
+          ><font-awesome-icon
+            class="cart"
+            icon="fa-solid fa-bag-shopping"
+          /><span class="Count">0</span></span
+        >
       </div>
     </nav>
     <header
@@ -78,6 +83,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import ShopingCart from "@/components/HomePageComponents/ShopingCart";
 import SimpleModal from "simple-modal-vue";
 import firebase from "firebase/compat/app";
@@ -96,7 +102,7 @@ export default {
     user: {
       email: "",
       password: "",
-    }
+    },
   }),
   components: {
     SimpleModal,
@@ -105,14 +111,14 @@ export default {
   methods: {
     userLogin() {
       firebase
-          .auth()
-          .signInWithEmailAndPassword(this.user.email, this.user.password)
-          .then(() => {
-            this.$router.push("/MyProfile");
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
+        .auth()
+        .signInWithEmailAndPassword(this.user.email, this.user.password)
+        .then(() => {
+          this.$router.push("/MyProfile");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   },
 };
@@ -203,6 +209,18 @@ export default {
     height: 35px;
     margin-left: 15px;
     cursor: pointer;
+  }
+  .Carticon {
+    position: relative;
+    .Count {
+      position: absolute;
+      left: 45px;
+      background-color: #ff5b5b;
+      border-radius: 50%;
+      width: 20px;
+      height: 21px;
+      padding: 2px;
+    }
   }
 }
 

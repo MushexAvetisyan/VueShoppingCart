@@ -2,7 +2,7 @@
   <div class="Discount">
     <div class="main">
       <div class="first">
-        <font-awesome-icon  icon="fa-solid fa-truck-fast" />
+        <font-awesome-icon icon="fa-solid fa-truck-fast" />
         <h4>Free Shipping on Orders Over $99</h4>
       </div>
       <div class="second">
@@ -24,55 +24,55 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.main{
+.main {
   display: flex;
   width: 100%;
 }
-.first{
+.first {
   width: 50%;
   height: 50px;
-  background-color: #03A9F8;
+  background-color: #03a9f8;
   display: flex;
   justify-content: center;
   align-items: center;
-  h4{
+  h4 {
     color: white;
     font-size: 13px;
   }
-  svg{
+  svg {
     margin-right: 15px;
     color: white;
   }
 }
 
-.second{
+.second {
   width: 50%;
   height: 50px;
-  background-color: #0098E0;
+  background-color: #0098e0;
   display: flex;
   justify-content: center;
   align-items: center;
-  h4{
+  h4 {
     color: white;
     font-size: 13px;
   }
-  svg{
+  svg {
     margin-right: 15px;
     color: white;
   }
 }
-.three{
+.three {
   width: 50%;
   height: 50px;
-  background-color: #03A9F8;
+  background-color: #03a9f8;
   display: flex;
   justify-content: center;
   align-items: center;
-  h4{
+  h4 {
     color: white;
     font-size: 13px;
   }
-  svg{
+  svg {
     margin-right: 15px;
     color: white;
   }

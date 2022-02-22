@@ -8,8 +8,10 @@
           <p>A Selection with only the best books</p>
           <img src="../../assets/banner-1.png" alt="" />
           <router-link to="/ExploreBooks"
-            ><button class="Explore">EXPLORE BOOKS <font-awesome-icon icon="fa-solid fa-arrow-right-long" /></button></router-link
-          >
+            ><button class="Explore">
+              EXPLORE BOOKS
+              <font-awesome-icon icon="fa-solid fa-arrow-right-long" /></button
+          ></router-link>
         </div>
         <ProductsList />
       </div>
@@ -20,11 +22,9 @@
 <script>
 import ProductsList from "@/components/HomePageComponents/ProductsList";
 export default {
-  data: () => ({
-
-  }),
+  data: () => ({}),
   components: {
-    ProductsList
+    ProductsList,
   },
 };
 </script>
@@ -41,12 +41,11 @@ export default {
     text-align: left;
     font-size: 22px;
     margin-left: 50px;
-    border-bottom: 2px solid #E7E7E7;
+    border-bottom: 2px solid #e7e7e7;
     margin-bottom: 30px;
     padding-bottom: 20px;
   }
 }
-
 
 .main {
   margin: 0 auto;
@@ -71,7 +70,7 @@ export default {
     font-weight: 600;
     letter-spacing: 1px;
   }
-  img{
+  img {
     height: 270px;
     margin-top: 30px;
   }
@@ -85,11 +84,11 @@ export default {
     font-weight: 500;
     font-size: 17px;
     cursor: pointer;
-    i{
+    i {
       margin-left: 15px;
     }
-    &:hover{
-      background-color: rgba(3, 169, 248, 0.8,);
+    &:hover {
+      background-color: rgba(3, 169, 248, 0.8);
       transition: 0.3s;
     }
   }

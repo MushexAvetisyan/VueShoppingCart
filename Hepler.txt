@@ -1,3 +1,27 @@
 <font-awesome-icon icon="fa-solid fa-user-secret" />
 
 `/products/${product.id}`
+
+
+
+    SET_STORE_CART: (store, storeCart) => {
+      const productData = storeCart;
+      const productInCartIndex = store.storeCarts.findIndex((ci) => ci.id === productData.id)
+      if (productInCartIndex >= 0) {
+        store.storeCarts[productInCartIndex].Count++
+      }else {
+        store.storeCarts.push(storeCart);
+      }
+      store.Count++
+      store.total += productData.Price
+    },
+
+
+    SET_STORE_CART: (store, storeCart) => {
+      let findProduct = store.storeCarts.find((product) => product.id === store.products.id)
+      if (findProduct) {
+        findProduct.Count +=1;
+      } else {
+        store.storeCarts.push(storeCart);
+      }
+    },

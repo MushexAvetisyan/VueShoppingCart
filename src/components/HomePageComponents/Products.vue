@@ -5,11 +5,11 @@
     <div class="Product">
       <div class="main" v-if="product">
         <div class="img">
-          <img :src="product.ImgBig" alt="img"/>
+          <img :src="product.ImgBig" alt="img" />
           <div class="info">
             <h1>{{ product.Name }}</h1>
             <hr width="50px" />
-            <h2>{{ product.Price }}</h2>
+            <h2>${{ product.Price }}</h2>
             <span>
               <p>
                 {{ product.Description }}
@@ -23,9 +23,9 @@
             </p>
             <div class="AddToCart">
               <div class="ItemCount">
-                <span @click="decrement" class="button">-</span>
+                <span @click="decrement" class="buttonIncrement">-</span>
                 <span>{{ productCount }}</span>
-                <span @click="increment" class="button">+</span>
+                <span @click="increment" class="buttonDecrement">+</span>
               </div>
               <div class="AddingButton">
                 <button @click="addToCart">Add To Cart</button>
@@ -42,8 +42,8 @@
 export default {
   data() {
     return {
-      productCount: 0,
-    }
+      productCount: 1,
+    };
   },
   computed: {
     product() {
@@ -52,20 +52,26 @@ export default {
   },
   methods: {
     increment() {
-      this.productCount++
+      this.productCount++;
     },
     decrement() {
-      this.productCount--
+      if (this.productCount <= 1) {
+        this.setState({
+          productCount: 1,
+        });
+      } else {
+        this.productCount--;
+      }
     },
     addToCart() {
-      const cart ={
+      const cart = {
         id: this.product.id,
         Name: this.product.Name,
         Img: this.product.Img,
         Price: this.product.Price,
         Count: this.productCount,
-      }
-      this.$store.commit("SET_STORE_CART", cart)
+      };
+      this.$store.commit("SET_STORE_CART", cart);
     },
   },
 };
@@ -133,7 +139,7 @@ export default {
     border-top: 1px solid #e7e7e7;
     margin-left: 20px;
     display: flex;
-    padding: 20px;
+    padding: 20px 0;
     button {
       padding: 10px 30px;
       font-size: 15px;
@@ -148,6 +154,23 @@ export default {
       }
     }
     .AddingButton {
+    }
+    .ItemCount {
+      margin-left: 0;
+      padding: 8px 0 8px 0;
+      border: 1px solid silver;
+      .buttonIncrement {
+        border-right: 1px solid silver;
+        padding: 10px;
+        margin: 0 0 0 0;
+        cursor: pointer;
+      }
+      .buttonDecrement {
+        border-left: 1px solid silver;
+        padding: 10px;
+        margin: 0 0 0 15px;
+        cursor: pointer;
+      }
     }
   }
 }

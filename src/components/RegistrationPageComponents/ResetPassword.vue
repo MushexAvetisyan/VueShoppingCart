@@ -18,11 +18,11 @@
         </h3>
         <div class="form-group">
           <label>Email</label>
-          <br>
+          <br />
           <input
-              type="email"
-              class="form-control form-control-lg"
-              v-model="user.email"
+            type="email"
+            class="form-control form-control-lg"
+            v-model="user.email"
           />
         </div>
         <div class="buttons">
@@ -31,7 +31,6 @@
             Reset password
           </button>
         </div>
-
       </form>
     </div>
   </div>
@@ -65,11 +64,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.ResetPanel{
+.ResetPanel {
   background-color: white;
   padding-bottom: 50px;
 }
-.ResetForm{
+.ResetForm {
   width: 650px;
   border: 1px solid #ececec;
   border-top-width: 4px;
@@ -78,24 +77,24 @@ export default {
   margin-top: 45px;
   box-shadow: 0 0 10px 5px #ececec;
   padding: 40px;
-  h3{
+  h3 {
     text-align: left;
     font-size: 14px;
-    color: #7F8B8E;
+    color: #7f8b8e;
     font-weight: 500;
   }
-  .form-group{
+  .form-group {
     text-align: left;
     margin: 20px 0 10px 0;
-    label{
-      color: #7F8B8E;
+    label {
+      color: #7f8b8e;
     }
-    input{
+    input {
       width: 98%;
       padding: 6px;
       border: none;
       outline: none;
-      border: 1px solid #DFDFDF;
+      border: 1px solid #dfdfdf;
     }
   }
 }
@@ -125,26 +124,26 @@ export default {
     color: #222529;
   }
 }
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-between;
-  a{
-    color: #4CADF9;
+  a {
+    color: #4cadf9;
     text-decoration-line: none;
     font-size: 14px;
-    &:hover{
+    &:hover {
       text-decoration-line: underline;
     }
   }
-  button{
+  button {
     padding: 10px;
     outline: none;
     border: none;
-    background-color: #03A9F8;
+    background-color: #03a9f8;
     color: white;
     cursor: pointer;
-    &:hover{
-      background-color: rgba(3,169,248, 0.8);
+    &:hover {
+      background-color: rgba(3, 169, 248, 0.8);
       transition: 0.3s;
     }
   }

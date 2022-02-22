@@ -18,24 +18,24 @@
         <div class="inputPassword">
           <label for="password">password</label><br />
           <input
-              type="password"
-              name="password"
-              required
-              v-model="user.password"
+            type="password"
+            name="password"
+            required
+            v-model="user.password"
           />
         </div>
         <div class="HelpLogin">
           <input type="checkbox" id="checkbox" v-model="checked" />
           <label for="checkbox">Remember Me</label>
           <router-link to="/ResetPassword"
-          ><span>Forgot Password?</span></router-link
+            ><span>Forgot Password?</span></router-link
           >
         </div>
 
         <div class="LogOrRegister">
           <button type="submit" class="Login">LOGIN</button>
           <router-link to="/Registration"
-          ><p class="RegNow">Register Now!</p></router-link
+            ><p class="RegNow">Register Now!</p></router-link
           >
         </div>
       </form>
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.LoginPanel{
+.LoginPanel {
   background-color: white;
   padding-bottom: 50px;
 }
@@ -83,41 +83,41 @@ export default {
   margin-top: 45px;
   box-shadow: 0 0 10px 5px #ececec;
 }
-  .logFormAction {
-    padding: 20px;
-    .inputMail {
-      margin-top: 10px;
-      text-align: left;
-      label {
-        color: #838383;
-        font-weight: 500;
-        font-size: 14px;
-      }
-      input {
-        width: 92%;
-        padding: 10px;
-        margin-top: 8px;
-        border: none;
-        border: 1px solid #dddddd;
-      }
+.logFormAction {
+  padding: 20px;
+  .inputMail {
+    margin-top: 10px;
+    text-align: left;
+    label {
+      color: #838383;
+      font-weight: 500;
+      font-size: 14px;
     }
-    .inputPassword {
-      margin-top: 30px;
-      text-align: left;
-      label {
-        color: #838383;
-        font-weight: 500;
-        font-size: 14px;
-      }
-      input {
-        width: 92%;
-        padding: 10px;
-        margin-top: 8px;
-        border: none;
-        border: 1px solid #dddddd;
-      }
+    input {
+      width: 92%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border: 1px solid #dddddd;
     }
   }
+  .inputPassword {
+    margin-top: 30px;
+    text-align: left;
+    label {
+      color: #838383;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    input {
+      width: 92%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border: 1px solid #dddddd;
+    }
+  }
+}
 .HelpLogin {
   display: flex;
   align-items: center;

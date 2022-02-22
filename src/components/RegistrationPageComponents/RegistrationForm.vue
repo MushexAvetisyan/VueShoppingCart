@@ -7,37 +7,21 @@
         </div>
         <label for="First Name">First Name <span>*</span></label
         ><br />
-        <input
-            v-model="user.name"
-            type="text"
-          name="First Name"
-        />
+        <input v-model="user.name" type="text" name="First Name" />
         <br />
         <label for="Last Name">Last Name <span>*</span></label
         ><br />
-        <input
-          v-model="user.lastName"
-          type="text"
-          name="Last Name"
-        />
+        <input v-model="user.lastName" type="text" name="Last Name" />
         <br />
         <label for="Email">Email address <span>*</span></label
         ><br />
-        <input
-            v-model="user.email"
-          type="email"
-          name="Email address"
-        />
+        <input v-model="user.email" type="email" name="Email address" />
         <br />
         <label for="Password">Password <span>*</span></label
         ><br />
-        <input
-            v-model="user.password"
-          type="password"
-          name="Password"
-        />
+        <input v-model="user.password" type="password" name="Password" />
         <br />
-        <label for="ConfirmPassword">ConfirmPassword <span>*</span></label
+        <label for="ConfirmPassword">Confirm Password <span>*</span></label
         ><br />
         <input
           type="password"
@@ -62,30 +46,30 @@ import "firebase/compat/auth";
 export default {
   data: () => ({
     user: {
-      name: '',
-      lastName: '',
-      email: '',
-      password: ''
-    }
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
   }),
   methods: {
     userRegistration() {
       firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.user.email, this.user.password)
-      .then((res) => {
-        res.user
-        .updateProfile({
-          displayName: this.user.name
+        .auth()
+        .createUserWithEmailAndPassword(this.user.email, this.user.password)
+        .then((res) => {
+          res.user
+            .updateProfile({
+              displayName: this.user.name,
+            })
+            .then(() => {
+              this.$router.push("/Login");
+            });
         })
-        .then(() => {
-          this.$router.push('/Login')
-        })
-      })
-      .catch((error) => {
-        alert(error.message)
-      })
-    }
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
   },
 };
 </script>

@@ -35,7 +35,7 @@
         <h3>Features</h3>
         <ul>
           <li v-for="(items, Features) in FeaturesItems" :key="Features">
-            <router-link  :to="{ path: items.router }">
+            <router-link :to="{ path: items.router }">
               {{ items.content }}
             </router-link>
           </li>
@@ -85,7 +85,7 @@ export default {
   display: flex;
   justify-content: space-around;
   text-align: left;
-  border-top: 1px solid #E1E1E1;
+  border-top: 1px solid #e1e1e1;
   padding-top: 30px;
   width: 80%;
   margin: 0 auto;
@@ -99,9 +99,11 @@ export default {
   }
 }
 
-.Account, .About, .Features{
-  ul{
-    li{
+.Account,
+.About,
+.Features {
+  ul {
+    li {
       list-style-type: none;
       a {
         color: #848689;
@@ -115,5 +117,4 @@ export default {
     }
   }
 }
-
 </style>

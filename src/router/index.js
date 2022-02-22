@@ -57,12 +57,12 @@ const routes = [
   {
     path: "/MyProfile",
     name: "MyProfile",
-    component: () => import("../components/LoginPageComponent/MyProfile.vue")
+    component: () => import("../components/LoginPageComponent/MyProfile.vue"),
   },
   {
     path: "/Product/:id",
-    name: 'product',
-    component: () => import("../components/HomePageComponents/Products.vue")
+    name: "product",
+    component: () => import("../components/HomePageComponents/Products.vue"),
   },
 ];
 
