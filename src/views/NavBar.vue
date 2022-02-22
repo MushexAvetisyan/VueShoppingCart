@@ -64,7 +64,7 @@
           ><font-awesome-icon
             class="cart"
             icon="fa-solid fa-bag-shopping"
-          /><span class="Count">0</span></span
+          /><span class="Count">{{ allItemsCount }}</span></span
         >
       </div>
     </nav>
@@ -107,6 +107,18 @@ export default {
   components: {
     SimpleModal,
     ShopingCart,
+  },
+  computed: {
+    ...mapGetters({
+      products: "getStoreCarts"
+    }),
+    allItemsCount() {
+      let count = 0
+      this.products.forEach(product => {
+        count += product.Count
+      })
+      return count
+    }
   },
   methods: {
     userLogin() {
@@ -214,12 +226,17 @@ export default {
     position: relative;
     .Count {
       position: absolute;
-      left: 45px;
+      right: -10px;
+      top: -10px;
       background-color: #ff5b5b;
+      color: white;
       border-radius: 50%;
       width: 20px;
-      height: 21px;
+      height: 20px;
       padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
