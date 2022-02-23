@@ -9,7 +9,7 @@
           </div>
           <p>{{ product.Name }}</p>
         </router-link>
-        <h2>{{ product.Price }}</h2>
+        <h2>${{ product.Price }}</h2>
       </div>
     </div>
   </div>
